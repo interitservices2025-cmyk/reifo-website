@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 import { Card } from "./Card";
 import { Button } from "./Button";
@@ -14,6 +15,7 @@ interface EventCardProps {
 
 export const EventCard: React.FC<EventCardProps> = ({ event, onSelect }) => {
   const { language, t } = useLanguage();
+  const router = useRouter();
 
   return (
     <Card className="flex flex-col h-full bg-white group p-0">
@@ -62,7 +64,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event, onSelect }) => {
           variant="outline"
           size="sm"
           className="w-full mt-4"
-          onClick={() => onSelect ? onSelect(event) : window.location.href = "/contact"}
+          onClick={() => onSelect ? onSelect(event) : router.push("/contact")}
         >
           {t("events.moreInfo")}
         </Button>

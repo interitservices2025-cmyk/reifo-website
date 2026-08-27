@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
@@ -100,12 +101,16 @@ export default function Home() {
                 {t("hero.subtitle")}
               </p>
               <div className="pt-4 flex flex-col sm:flex-row gap-4">
-                <Button variant="accent" size="lg" onClick={() => window.location.href = "#benevolat"}>
-                  {t("hero.ctaMember")}
-                </Button>
-                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary" onClick={() => window.location.href = "#evenements"}>
-                  {t("hero.ctaActivities")}
-                </Button>
+                <Link href="/devenir-membre" passHref>
+                  <Button variant="accent" size="lg">
+                    {t("hero.ctaMember")}
+                  </Button>
+                </Link>
+                <Link href="/activites-evenements" passHref>
+                  <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+                    {t("hero.ctaActivities")}
+                  </Button>
+                </Link>
               </div>
             </div>
           </Container>
@@ -173,9 +178,9 @@ export default function Home() {
                 <p className="text-sm text-text-muted leading-relaxed flex-grow">
                   {t("sectors.items.sport.desc")}
                 </p>
-                <a href="#contact" className="mt-6 inline-flex items-center text-sm font-semibold text-secondary hover:text-primary transition-smooth focus:outline-none">
+                <Link href="/sport-sante" className="mt-6 inline-flex items-center text-sm font-semibold text-secondary hover:text-primary transition-smooth focus:outline-none">
                   {t("sectors.discover")} &rarr;
-                </a>
+                </Link>
               </Card>
 
               {/* Volet 2: Intégration */}
@@ -191,9 +196,9 @@ export default function Home() {
                 <p className="text-sm text-text-muted leading-relaxed flex-grow">
                   {t("sectors.items.integration.desc")}
                 </p>
-                <a href="#contact" className="mt-6 inline-flex items-center text-sm font-semibold text-accent-blue hover:text-primary transition-smooth focus:outline-none">
+                <Link href="/integration-immigrants" className="mt-6 inline-flex items-center text-sm font-semibold text-accent-blue hover:text-primary transition-smooth focus:outline-none">
                   {t("sectors.discover")} &rarr;
-                </a>
+                </Link>
               </Card>
 
               {/* Volet 3: Appui Scolaire */}
@@ -209,9 +214,9 @@ export default function Home() {
                 <p className="text-sm text-text-muted leading-relaxed flex-grow">
                   {t("sectors.items.school.desc")}
                 </p>
-                <a href="#contact" className="mt-6 inline-flex items-center text-sm font-semibold text-accent-warm hover:text-primary transition-smooth focus:outline-none">
+                <Link href="/appui-integration-scolaire" className="mt-6 inline-flex items-center text-sm font-semibold text-accent-warm hover:text-primary transition-smooth focus:outline-none">
                   {t("sectors.discover")} &rarr;
-                </a>
+                </Link>
               </Card>
 
               {/* Volet 4: Promotion de la Francophonie */}
@@ -227,9 +232,9 @@ export default function Home() {
                 <p className="text-sm text-text-muted leading-relaxed flex-grow">
                   {t("sectors.items.francophonie.desc")}
                 </p>
-                <a href="#contact" className="mt-6 inline-flex items-center text-sm font-semibold text-primary hover:text-secondary transition-smooth focus:outline-none">
+                <Link href="/promotion-francophonie" className="mt-6 inline-flex items-center text-sm font-semibold text-primary hover:text-secondary transition-smooth focus:outline-none">
                   {t("sectors.discover")} &rarr;
-                </a>
+                </Link>
               </Card>
 
               {/* Volet 5: Volet Social */}
@@ -245,9 +250,9 @@ export default function Home() {
                 <p className="text-sm text-text-muted leading-relaxed flex-grow">
                   {t("sectors.items.social.desc")}
                 </p>
-                <a href="#contact" className="mt-6 inline-flex items-center text-sm font-semibold text-accent hover:text-primary transition-smooth focus:outline-none">
+                <Link href="/volet-social" className="mt-6 inline-flex items-center text-sm font-semibold text-accent hover:text-primary transition-smooth focus:outline-none">
                   {t("sectors.discover")} &rarr;
-                </a>
+                </Link>
               </Card>
             </div>
           </Container>
@@ -263,9 +268,11 @@ export default function Home() {
                 description={t("events.description")}
                 className="mb-0 max-w-2xl"
               />
-              <Button variant="outline" className="mt-6 md:mt-0 shrink-0" onClick={() => window.location.href = "#contact"}>
-                {t("events.allEvents")}
-              </Button>
+              <Link href="/activites-evenements" passHref>
+                <Button variant="outline" className="mt-6 md:mt-0 shrink-0">
+                  {t("events.allEvents")}
+                </Button>
+              </Link>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -318,9 +325,11 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <Button variant="outline" size="sm" className="w-full mt-4" onClick={() => window.location.href = "#contact"}>
-                      {t("events.moreInfo")}
-                    </Button>
+                    <Link href="/activites-evenements" passHref className="w-full mt-4 block">
+                      <Button variant="outline" size="sm" className="w-full">
+                        {t("events.moreInfo")}
+                      </Button>
+                    </Link>
                   </div>
                 </Card>
               ))}
@@ -348,9 +357,11 @@ export default function Home() {
                   <h3 className="text-2xl font-bold font-display">{t("community.items.member.title")}</h3>
                   <p className="text-sm text-white/80 leading-relaxed">{t("community.items.member.desc")}</p>
                 </div>
-                <Button variant="accent" className="mt-8 w-full" onClick={() => window.location.href = "#contact"}>
-                  {t("community.items.member.cta")}
-                </Button>
+                <Link href="/devenir-membre" passHref className="mt-8 w-full block">
+                  <Button variant="accent" className="w-full">
+                    {t("community.items.member.cta")}
+                  </Button>
+                </Link>
               </div>
 
               {/* Devenir Bénévole Card */}
@@ -359,9 +370,11 @@ export default function Home() {
                   <h3 className="text-2xl font-bold font-display">{t("community.items.volunteer.title")}</h3>
                   <p className="text-sm text-white/80 leading-relaxed">{t("community.items.volunteer.desc")}</p>
                 </div>
-                <Button variant="secondary" className="mt-8 w-full" onClick={() => window.location.href = "#contact"}>
-                  {t("community.items.volunteer.cta")}
-                </Button>
+                <Link href="/benevolat" passHref className="mt-8 w-full block">
+                  <Button variant="secondary" className="w-full">
+                    {t("community.items.volunteer.cta")}
+                  </Button>
+                </Link>
               </div>
 
               {/* Participer aux Activités Card */}
@@ -370,9 +383,11 @@ export default function Home() {
                   <h3 className="text-2xl font-bold font-display">{t("community.items.activities.title")}</h3>
                   <p className="text-sm text-white/80 leading-relaxed">{t("community.items.activities.desc")}</p>
                 </div>
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary mt-8 w-full" onClick={() => window.location.href = "#evenements"}>
-                  {t("community.items.activities.cta")}
-                </Button>
+                <Link href="/activites-evenements" passHref className="mt-8 w-full block">
+                  <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary w-full">
+                    {t("community.items.activities.cta")}
+                  </Button>
+                </Link>
               </div>
             </div>
           </Container>

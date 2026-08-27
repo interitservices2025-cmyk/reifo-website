@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
@@ -89,12 +90,16 @@ export const SectorPageTemplate: React.FC<SectorPageTemplateProps> = ({ sector }
                   </p>
                 </div>
                 <div className="mt-8 space-y-3">
-                  <Button variant="accent" className="w-full" onClick={() => window.location.href = "/contact"}>
-                    {t("sectors.detail.ctaContact")}
-                  </Button>
-                  <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary w-full" onClick={() => window.location.href = "/devenir-membre"}>
-                    {t("sectors.detail.ctaCommunity")}
-                  </Button>
+                  <Link href="/contact" passHref className="w-full block">
+                    <Button variant="accent" className="w-full">
+                      {t("sectors.detail.ctaContact")}
+                    </Button>
+                  </Link>
+                  <Link href="/devenir-membre" passHref className="w-full block">
+                    <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary w-full">
+                      {t("sectors.detail.ctaCommunity")}
+                    </Button>
+                  </Link>
                 </div>
               </Card>
             </div>
