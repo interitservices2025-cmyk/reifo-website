@@ -1,26 +1,73 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FCFAF7; /* Fond blanc crème doux issu du logo */
+  --foreground: #1F2937; /* Texte principal sombre */
+  
+  /* Palette de couleurs extraite du logo REIFO */
+  --primary: #002D62;      /* Bleu marine officiel du texte REIFO */
+  --secondary: #32A852;    /* Vert du logo (Ontario francophone, croissance) */
+  --accent: #E74C3C;       /* Rouge orangé du logo (Solidarité, accueil) */
+  --accent-warm: #F1C40F;  /* Jaune d'or du logo (Inclusion, jeunesse) */
+  --accent-blue: #2980B9;  /* Bleu moyen du logo (Réseautage, fluidité) */
+  
+  --bg-surface: #FFFFFF;   /* Blanc pur pour les cartes, formulaires, etc. */
+  --border: #E5E7EB;       /* Couleur de bordure standard */
+  --muted: #4B5563;        /* Couleur de texte secondaire atténuée */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-accent-warm: var(--accent-warm);
+  --color-accent-blue: var(--accent-blue);
+  
+  --color-bg-surface: var(--bg-surface);
+  --color-border-custom: var(--border);
+  --color-text-muted: var(--muted);
+  
+  /* Typographie */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  
+  /* Animations personnalisées */
+  --animate-fade-in: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-up: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Règle d'accessibilité : focus visible */
+*:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Animations de transition fluide globales */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
