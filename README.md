@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Site Web REIFO — Réseau d’Entraide des Immigrants Francophones de l’Ontario
 
-## Getting Started
+Site web institutionnel bilingue (Français / Anglais) pour le **REIFO**, organisme à but non lucratif dédié à l'intégration sociale, éducative, sportive et communautaire des immigrants francophones dans la région de Halton en Ontario.
 
-First, run the development server:
+---
+
+## 🚀 Technologies
+
+- **Framework** : [Next.js 16 (App Router)](https://nextjs.org/)
+- **Langage** : TypeScript
+- **Style** : Tailwind CSS v4 avec palette de marque REIFO personnalisée
+- **Internationalisation** : Système bilingue FR/EN via `LanguageContext`
+- **Composants** : React 19 avec architecture modulaire et mobile-first
+
+---
+
+## 📋 Fonctionnalités Principales
+
+1. **Accueil immersif** : Présentation du REIFO, des 5 volets d'intervention, des prochains événements, de la galerie et formulaire de contact rapide.
+2. **Nos 5 Volets d'Action** :
+   - Sport & Santé (activités physiques récréatives, saines habitudes de vie)
+   - Intégration des Immigrants (accueil, orientation, mise en réseau)
+   - Appui & Intégration Scolaire (système scolaire ontarien, tutorat, devoirs)
+   - Promotion de la Francophonie (activités culturelles, alphabétisation)
+   - Volet Social & Solidarité (sorties familiales, entraide communautaire)
+3. **Galerie interactive** : Photos authentiques filtrables par catégorie (Sport, Vie communautaire, etc.) avec visionneuse plein écran (Lightbox).
+4. **Formulaires fonctionnels connectés à l'API** (`/api/contact`) :
+   - Formulaire de contact général
+   - Formulaire de candidature bénévole (`/benevolat`)
+   - Formulaire d'adhésion membre (`/devenir-membre`)
+5. **En-tête permanent (Sticky Header)** : Fond blanc opaque permanent assurant une lisibilité maximale lors du défilement.
+
+---
+
+## 🛠️ Installation et Démarrage
 
 ```bash
+# 1. Cloner ou ouvrir le projet
+cd reifo
+
+# 2. Installer les dépendances
+npm install
+
+# 3. Configurer les variables d'environnement (optionnel)
+cp .env.example .env.local
+
+# 4. Lancer le serveur de développement
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+L'application est disponible sur [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📬 Configuration des Formulaires & Webhooks
 
-## Learn More
+Le point de terminaison API [`/api/contact`](app/api/contact/route.ts) valide les données côté serveur et enregistre chaque soumission.
 
-To learn more about Next.js, take a look at the following resources:
+Pour transmettre automatiquement les messages reçus à un service externe (Make, Zapier, Slack, Discord, ou un CMS externe), définissez la variable d'environnement suivante dans votre fichier `.env.local` :
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+CONTACT_WEBHOOK_URL=https://votre-webhook-url.com
+CONTACT_RECIPIENT_EMAIL=contact@reifo.ca
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📦 Construction pour Production
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+npm run start
+```

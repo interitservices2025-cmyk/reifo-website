@@ -43,7 +43,7 @@ export const fr = {
   about: {
     badge: "Qui sommes-nous ?",
     title: "Accompagner l'intégration et célébrer la diversité",
-    description: "REIFO est un organisme à but non lucratif qui œuvre à l’intégration sociale, éducative et communautaire des nouveaux arrivants francophones dans la région de Halton.",
+    description: "Le Réseau d’entraide des Immigrants Francophones de l’Ontario (REIFO) est un organisme à but non lucratif qui œuvre à l’intégration sociale, éducative et communautaire des nouveaux arrivants francophones dans la région de Halton.",
     point1: "Intégration sociale et accompagnement à l'installation",
     point2: "Appui éducatif et accompagnement à l'intégration scolaire",
     point3: "Promotion de la santé et du bien-être par le sport",
@@ -64,8 +64,8 @@ export const fr = {
       youth: "Jeunesse (Valorisation, leadership, sport)",
       families: "Familles (Prévention de l'isolement, soutien social)",
       newcomers: "Nouveaux arrivants (Installation, logement, réseautage)",
-      education: "Éducation (Tutorat, compréhension du système canadien)",
-      sport: "Sport & Santé (Soccer, basketball, saines habitudes)",
+      education: "Éducation (Tutorat, compréhension du système scolaire ontarien)",
+      sport: "Sport & Santé (Activités physiques et récréatives, saines habitudes)",
       community: "Vie communautaire (Partage culturel, événements festifs)"
     }
   },
@@ -77,15 +77,15 @@ export const fr = {
     items: {
       sport: {
         title: "Sport & Santé",
-        desc: "Promotion du sport (soccer, basketball), organisation de sorties récréatives et sensibilisation aux saines habitudes de vie."
+        desc: "Promotion du sport, organisation d’activités récréatives et sensibilisation aux saines habitudes de vie."
       },
       integration: {
         title: "Intégration des immigrants",
-        desc: "Aide à la recherche de logement, dons de vêtements, séances d'orientation et activités de réseautage professionnel."
+        desc: "Accompagnement des immigrants dans leur intégration, orientation, accès aux ressources et développement de liens sociaux et communautaires."
       },
       school: {
         title: "Appui & Intégration scolaire",
-        desc: "Aide aux devoirs personnalisée, accompagnement des familles et aide à la compréhension du système éducatif canadien."
+        desc: "Aide aux devoirs personnalisée, accompagnement des familles et aide à la compréhension du système éducatif ontarien."
       },
       francophonie: {
         title: "Promotion de la francophonie",
@@ -104,24 +104,24 @@ export const fr = {
       proposedTitle: "Ce que nous proposons dans ce volet",
       publicTitle: "Public concerné",
       howToTitle: "Comment participer ?",
-      howToText: "Vous êtes intéressé par nos activités ou vous souhaitez bénéficier de ce service ? Contactez-nous ou inscrivez-vous en ligne.",
+      howToText: "Vous êtes intéressé par nos activités ou vous souhaitez bénéficier de nos services ?",
       ctaActivities: "Rejoindre nos activités",
       ctaContact: "Nous contacter",
       ctaCommunity: "Rejoindre la communauté",
       sport: {
-        target: "Jeunes francophones de 8 à 25 ans et familles de la région de Halton.",
+        target: "Jeunes et familles de la région de Halton.",
         activities: [
-          "Entraînements de soccer et basketball hebdomadaires.",
-          "Tournois de la diversité multiculturelle réunissant les communautés locales.",
-          "Sorties récréatives en plein air (randonnée, parcs provinciaux).",
-          "Sessions de sensibilisation à l'alimentation et aux saines habitudes de vie."
+          "Séances sportives régulières et activités de groupe variées.",
+          "Tournois sportifs et journées de la diversité réunissant les communautés locales.",
+          "Sorties récréatives en plein air (marche, randonnée, parcs provinciaux).",
+          "Sessions de sensibilisation à l'activité physique et aux saines habitudes de vie."
         ]
       },
       integration: {
         target: "Nouveaux arrivants francophones installés en Ontario depuis moins de 5 ans.",
         activities: [
           "Assistance personnalisée dans la recherche de logement locatif.",
-          "Distribution et dons de vêtements de saison (notamment pour l'hiver canadien).",
+          "Accompagnement et orientation vers les ressources communautaires et services essentiels.",
           "Ateliers d'orientation sur la vie en Ontario et les démarches d'installation.",
           "Séances de réseautage et mentorat professionnel pour faciliter l'emploi."
         ]
@@ -130,7 +130,7 @@ export const fr = {
         target: "Élèves francophones des écoles élémentaires et secondaires de Halton, ainsi que leurs parents.",
         activities: [
           "Séances gratuites d'aide aux devoirs et de tutorat personnalisé.",
-          "Ateliers d'explication du système scolaire canadien pour les parents.",
+          "Ateliers d'explication du système scolaire ontarien pour les parents.",
           "Accompagnement et médiation entre les familles et le personnel scolaire.",
           "Valorisation de la réussite éducative par des prix d'excellence."
         ]
@@ -211,7 +211,7 @@ export const fr = {
     heroSubtitle: "Rejoignez une communauté francophone soudée, solidaire et dynamique en Ontario.",
     whyTitle: "Pourquoi devenir membre ?",
     benefit1: "Participer aux assemblées générales et orienter les décisions de l'organisme.",
-    benefit2: "Accéder en priorité à nos activités de réseautage, ateliers de logement et sorties sportives.",
+    benefit2: "Assister en priorité à nos activités.",
     benefit3: "Bénéficier d'un accompagnement personnalisé pour votre famille.",
     benefit4: "Contribuer au développement de la francophonie et de la diversité multiculturelle dans la région de Halton.",
     formTitle: "Demande d'adhésion",
@@ -233,7 +233,7 @@ export const fr = {
     availLabel: "Disponibilités",
     formTitle: "Formulaire de candidature bénévole",
     options: {
-      sport: "Sport & Santé (Soccer, Basketball, Encadrement)",
+      sport: "Sport & Santé (Activités physiques et sportives, encadrement)",
       school: "Appui scolaire (Aide aux devoirs, Tutorat)",
       social: "Volet social (Événements communautaires, Logistique)",
       integration: "Intégration (Accompagnement, Recherche de logement)",
@@ -280,7 +280,7 @@ export const fr = {
       subject: "Sujet de votre message",
       message: "Votre message",
       send: "Envoyer le message",
-      success: "Merci ! Votre message a été envoyé avec succès. We will reply to you as soon as possible.",
+      success: "Merci ! Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.",
       error: "Une erreur est survenue lors de l'envoi. Veuillez réessayer."
     }
   },

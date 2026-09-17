@@ -23,6 +23,7 @@ export default function BecomeMemberPage() {
     consent: false
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const breadcrumbs = [
     { label: t("breadcrumbs.join") }
@@ -30,25 +31,53 @@ export default function BecomeMemberPage() {
 
   const benefits = ["benefit1", "benefit2", "benefit3", "benefit4"];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.city || !formData.consent) {
       setStatus("error");
+      setErrorMessage(t("contact.form.error"));
       return;
     }
     setStatus("sending");
-    setTimeout(() => {
-      setStatus("success");
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        city: "",
-        motivation: "",
-        consent: false
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "membership",
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          city: formData.city,
+          motivation: formData.motivation,
+          consent: formData.consent
+        })
       });
-    }, 1500);
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setStatus("success");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          city: "",
+          motivation: "",
+          consent: false
+        });
+      } else {
+        setStatus("error");
+        setErrorMessage(data.error || t("contact.form.error"));
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage(t("contact.form.error"));
+    }
   };
 
   return (
@@ -98,14 +127,6 @@ export default function BecomeMemberPage() {
                 </h3>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Demo indicator */}
-                  <div className="p-3 bg-secondary/5 border border-secondary/15 rounded-lg text-xs text-secondary/80 flex items-center space-x-2">
-                    <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>Formulaire de démonstration Front-End — Le traitement réel des adhésions sera connecté ultérieurement lors de la configuration du CMS.</span>
-                  </div>
-
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-semibold text-primary mb-2">
@@ -223,7 +244,7 @@ export default function BecomeMemberPage() {
 
                   {status === "error" && (
                     <div className="p-4 bg-accent/10 border border-accent/20 text-accent text-sm font-semibold rounded-lg animate-fade-in">
-                      {t("contact.form.error")}
+                      {errorMessage || t("contact.form.error")}
                     </div>
                   )}
                 </form>

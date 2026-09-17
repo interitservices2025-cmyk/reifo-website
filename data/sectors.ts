@@ -24,6 +24,7 @@ export const sectorsData: Sector[] = [
     ctaLink: "/contact",
     galleryImages: [
       "/images/reifo/sport/hockey-indoor.jpg",
+      "/images/reifo/sport/seance-sport-gymnase.png",
       "/images/reifo/sport/gym-training.jpg",
       "/images/reifo/sport/soccer-match.jpg"
     ]

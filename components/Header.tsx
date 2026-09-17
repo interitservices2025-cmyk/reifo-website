@@ -52,10 +52,10 @@ export const Header: React.FC = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-smooth ${
+      className={`sticky top-0 z-50 bg-white border-b border-border-custom transition-smooth ${
         isScrolled
-          ? "bg-bg-surface/95 backdrop-blur-md border-b border-border-custom shadow-sm py-3"
-          : "bg-transparent py-5"
+          ? "shadow-md py-3.5"
+          : "shadow-sm py-4"
       }`}
     >
       <Container className="flex items-center justify-between">

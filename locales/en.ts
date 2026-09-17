@@ -43,7 +43,7 @@ export const en = {
   about: {
     badge: "Who are we?",
     title: "Supporting integration and celebrating diversity",
-    description: "REIFO is a non-profit organization working for the social, educational, and community integration of French-speaking newcomers in the Halton region.",
+    description: "The Réseau d’entraide des Immigrants Francophones de l’Ontario (REIFO) is a non-profit organization working to support the social, educational and community integration of Francophone newcomers in the Halton region.",
     point1: "Social integration and settlement support",
     point2: "Educational support and school system orientation",
     point3: "Promoting health and well-being through sports",
@@ -64,8 +64,8 @@ export const en = {
       youth: "Youth (Empowerment, leadership, sports)",
       families: "Families (Preventing isolation, social support)",
       newcomers: "Newcomers (Settlement, housing, networking)",
-      education: "Education (Tutoring, understanding the Canadian system)",
-      sport: "Sport & Health (Soccer, basketball, healthy habits)",
+      education: "Education (Tutoring, understanding the Ontario school system)",
+      sport: "Sport & Health (Physical and recreational activities, healthy habits)",
       community: "Community Life (Cultural exchange, festive events)"
     }
   },
@@ -77,15 +77,15 @@ export const en = {
     items: {
       sport: {
         title: "Sport & Health",
-        desc: "Promoting sports (soccer, basketball), organizing recreational outings, and raising awareness for healthy lifestyle choices."
+        desc: "Promotion of sports, recreational activities and healthy lifestyle awareness."
       },
       integration: {
         title: "Immigrant Integration",
-        desc: "Assistance in finding housing, clothing donations, orientation sessions, and professional networking activities."
+        desc: "Support for immigrants through integration, orientation, access to resources and the development of social and community connections."
       },
       school: {
         title: "Educational Support",
-        desc: "Personalized homework assistance, family support, and helping parents understand the Canadian educational system."
+        desc: "Personalized homework assistance, family support, and helping parents understand the Ontario education system."
       },
       francophonie: {
         title: "Promoting Francophonie",
@@ -104,24 +104,24 @@ export const en = {
       proposedTitle: "What we offer in this sector",
       publicTitle: "Target Public",
       howToTitle: "How to participate?",
-      howToText: "Are you interested in our activities or do you wish to benefit from this service? Contact us or register online.",
+      howToText: "Are you interested in our activities or would you like to benefit from our services?",
       ctaActivities: "Join our activities",
       ctaContact: "Contact us",
       ctaCommunity: "Join the community",
       sport: {
-        target: "French-speaking youth aged 8 to 25 and families in the Halton region.",
+        target: "Youth and families in the Halton region.",
         activities: [
-          "Weekly soccer and basketball training.",
-          "Multicultural diversity tournaments bringing local communities together.",
-          "Outdoor recreational outings (hiking, provincial parks).",
-          "Awareness sessions on nutrition and healthy lifestyles."
+          "Regular sports sessions and varied group activities.",
+          "Sports tournaments and diversity sports days bringing local communities together.",
+          "Outdoor recreational outings (walking, hiking, provincial parks).",
+          "Awareness sessions on physical activity and healthy lifestyles."
         ]
       },
       integration: {
         target: "French-speaking newcomers settled in Ontario for less than 5 years.",
         activities: [
           "Personalized assistance in finding rental housing.",
-          "Distribution and donations of seasonal clothing (especially for Canadian winter).",
+          "Guidance and referral to community resources and essential services.",
           "Orientation workshops on life in Ontario and settlement procedures.",
           "Networking and professional mentoring sessions to facilitate employment."
         ]
@@ -130,7 +130,7 @@ export const en = {
         target: "French-speaking elementary and high school students in Halton, and their parents.",
         activities: [
           "Free homework assistance and personalized tutoring sessions.",
-          "Workshops explaining the Canadian school system to parents.",
+          "Workshops explaining the Ontario school system to parents.",
           "Support and mediation between families and school staff.",
           "Celebrating educational success through excellence awards."
         ]
@@ -211,7 +211,7 @@ export const en = {
     heroSubtitle: "Join a close-knit, supportive, and active French-speaking community in Ontario.",
     whyTitle: "Why become a member?",
     benefit1: "Participate in general assemblies and guide the organization's decisions.",
-    benefit2: "Get priority access to our networking events, housing workshops, and sports outings.",
+    benefit2: "Priority access to our activities.",
     benefit3: "Benefit from personalized support for your family.",
     benefit4: "Contribute to developing French culture and multicultural diversity in the Halton region.",
     formTitle: "Membership Request Form",
@@ -233,7 +233,7 @@ export const en = {
     availLabel: "Availabilities",
     formTitle: "Volunteer Application Form",
     options: {
-      sport: "Sport & Health (Soccer, Basketball, Coaching)",
+      sport: "Sport & Health (Physical and sports activities, coaching)",
       school: "School Support (Homework help, Tutoring)",
       social: "Social Pillar (Community events, Logistics)",
       integration: "Integration (Accompanying, Housing search)",

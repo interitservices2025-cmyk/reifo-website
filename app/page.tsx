@@ -10,6 +10,8 @@ import { Container } from "../components/Container";
 import { Button } from "../components/Button";
 import { Card } from "../components/Card";
 import { SectionHeading } from "../components/SectionHeading";
+import { eventsData } from "../data/events";
+import { EventCard } from "../components/EventCard";
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -17,6 +19,7 @@ export default function Home() {
   // Contact Form State
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   // Gallery Lightbox State
   const [activeImage, setActiveImage] = useState<string | null>(null);
@@ -27,6 +30,11 @@ export default function Home() {
       src: "/images/reifo/gallery/pique-nique-1.jpg",
       alt: "Pique-nique de la communauté REIFO en Ontario",
       title: "Pique-nique communautaire"
+    },
+    {
+      src: "/images/reifo/gallery/seance-sport-gymnase.png",
+      alt: "Séance d'échauffement et de sport collectif en gymnase",
+      title: "Échauffement et sport collectif"
     },
     {
       src: "/images/reifo/gallery/hockey-indoor.jpg",
@@ -44,29 +52,48 @@ export default function Home() {
       title: "Échanges sous les arbres"
     },
     {
-      src: "/images/reifo/gallery/pique-nique-4.jpg",
-      alt: "Activités et jeux en plein air",
-      title: "Jeux extérieurs en famille"
-    },
-    {
-      src: "/images/reifo/gallery/gym-training.jpg",
-      alt: "Séance d'entraînement en gymnase",
-      title: "Activités physiques et bien-être"
+      src: "/images/reifo/gallery/soccer-match.jpg",
+      alt: "Match de soccer communautaire",
+      title: "Match de soccer de la diversité"
     }
   ];
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       setFormStatus("error");
+      setErrorMessage(t("contact.form.error"));
       return;
     }
     setFormStatus("sending");
-    // Simulate API request
-    setTimeout(() => {
-      setFormStatus("success");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    }, 1500);
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "contact",
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message
+        })
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setFormStatus("success");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        setFormStatus("error");
+        setErrorMessage(data.error || t("contact.form.error"));
+      }
+    } catch {
+      setFormStatus("error");
+      setErrorMessage(t("contact.form.error"));
+    }
   };
 
   return (
@@ -276,63 +303,12 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {(t("events.placeholders") as any[]).map((evt, idx) => (
-                <Card key={idx} className="flex flex-col h-full bg-white group p-0">
-                  <div className="relative h-48 w-full overflow-hidden">
-                    <Image
-                      src={
-                        idx === 0
-                          ? "/images/reifo/events/soccer-match.jpg"
-                          : idx === 1
-                          ? "/images/reifo/events/pique-nique-3.jpg"
-                          : "/images/reifo/events/pique-nique-1.jpg"
-                      }
-                      alt={evt.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-smooth"
-                    />
-                    <span className="absolute top-4 left-4 bg-primary text-white text-xs font-semibold px-2.5 py-1 rounded-md">
-                      {evt.category}
-                    </span>
-                  </div>
-
-                  <div className="p-6 flex flex-col flex-grow space-y-4">
-                    <h3 className="text-xl font-bold font-display text-primary line-clamp-2">
-                      {evt.title}
-                    </h3>
-                    <p className="text-sm text-text-muted leading-relaxed flex-grow">
-                      {evt.desc}
-                    </p>
-
-                    <div className="border-t border-border-custom/80 pt-4 space-y-2 text-xs text-text-muted">
-                      <div className="flex items-center space-x-2">
-                        <svg className="h-4 w-4 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <span>{evt.date}</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <svg className="h-4 w-4 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span>{evt.time}</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <svg className="h-4 w-4 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        </svg>
-                        <span className="line-clamp-1">{evt.location}</span>
-                      </div>
-                    </div>
-
-                    <Link href="/activites-evenements" passHref className="w-full mt-4 block">
-                      <Button variant="outline" size="sm" className="w-full">
-                        {t("events.moreInfo")}
-                      </Button>
-                    </Link>
-                  </div>
-                </Card>
-              ))}
+              {eventsData
+                .filter((evt) => evt.isUpcoming)
+                .slice(0, 3)
+                .map((evt) => (
+                  <EventCard key={evt.id} event={evt} />
+                ))}
             </div>
           </Container>
         </section>
@@ -552,14 +528,6 @@ export default function Home() {
               {/* Formulaire */}
               <div className="lg:col-span-7 bg-white border border-border-custom rounded-2xl p-8 shadow-xl">
                 <form onSubmit={handleContactSubmit} className="space-y-6">
-                  {/* Demo indicator */}
-                  <div className="p-3 bg-secondary/5 border border-secondary/15 rounded-lg text-xs text-secondary/80 flex items-center space-x-2">
-                    <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>Formulaire de démonstration Front-End — Le traitement réel des messages sera connecté ultérieurement lors de la configuration du CMS.</span>
-                  </div>
-
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-primary mb-2">
                       {t("contact.form.name")} <span className="text-accent">*</span>
@@ -643,7 +611,7 @@ export default function Home() {
 
                   {formStatus === "error" && (
                     <div className="p-4 bg-accent/10 border border-accent/20 text-accent text-sm font-semibold rounded-lg animate-fade-in">
-                      {t("contact.form.error")}
+                      {errorMessage || t("contact.form.error")}
                     </div>
                   )}
                 </form>

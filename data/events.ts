@@ -100,8 +100,8 @@ export const eventsData: Event[] = [
       en: "Youth Indoor Hockey Camp"
     },
     description: {
-      fr: "Une semaine d'entraînement et d'initiation au hockey d'intérieur pour les jeunes francophones de 8 à 15 ans, animée par des entraîneurs bénévoles.",
-      en: "A week of training and indoor hockey initiation for francophone youth aged 8 to 15, led by volunteer coaches."
+      fr: "Une semaine d'entraînement et d'initiation au hockey d'intérieur pour les jeunes francophones, animée par des entraîneurs bénévoles.",
+      en: "A week of training and indoor hockey initiation for francophone youth, led by volunteer coaches."
     },
     date: { fr: "Du 3 au 7 Août 2026", en: "August 3 to 7, 2026" },
     time: "09:00 - 12:00",
