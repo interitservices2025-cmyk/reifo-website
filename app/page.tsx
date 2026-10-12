@@ -107,13 +107,13 @@ export default function Home() {
           {/* Background image overlay */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/images/reifo/hero/pique-nique-1.jpg"
-              alt="Communauté multiculturelle dynamique"
+              src="/images/reifo/hero/hero-communaute-diversite.jpg"
+              alt="Communauté diverse francophone de l'Ontario"
               fill
               priority
-              className="object-cover opacity-45"
+              className="object-cover opacity-50"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/75 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent" />
           </div>
 
           <Container className="relative z-10 py-20 text-white">
