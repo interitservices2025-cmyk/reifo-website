@@ -12,6 +12,7 @@ import { Card } from "../components/Card";
 import { SectionHeading } from "../components/SectionHeading";
 import { eventsData } from "../data/events";
 import { EventCard } from "../components/EventCard";
+import { HeroSplit } from "../components/HeroSplit";
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -103,45 +104,7 @@ export default function Home() {
 
       <main className="flex-grow">
         {/* 1. Hero Section */}
-        <section id="accueil" className="relative min-h-[85vh] flex items-center bg-primary overflow-hidden pt-10">
-          {/* Background image overlay */}
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="/images/reifo/hero/hero-communaute-diversite.jpg"
-              alt="Communauté diverse francophone de l'Ontario"
-              fill
-              priority
-              className="object-cover opacity-50"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent" />
-          </div>
-
-          <Container className="relative z-10 py-20 text-white">
-            <div className="max-w-3xl space-y-6 animate-slide-up">
-              <span className="inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-secondary text-white">
-                REIFO Canada
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight tracking-tight">
-                {t("hero.title")}
-              </h1>
-              <p className="text-lg md:text-xl text-white/80 max-w-2xl font-light leading-relaxed">
-                {t("hero.subtitle")}
-              </p>
-              <div className="pt-4 flex flex-col sm:flex-row gap-4">
-                <Link href="/devenir-membre" passHref>
-                  <Button variant="accent" size="lg">
-                    {t("hero.ctaMember")}
-                  </Button>
-                </Link>
-                <Link href="/activites-evenements" passHref>
-                  <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
-                    {t("hero.ctaActivities")}
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </Container>
-        </section>
+        <HeroSplit />
 
         {/* 2. Qui Sommes-Nous Section */}
         <section id="a-propos" className="py-24 bg-background">

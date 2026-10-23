@@ -35,10 +35,25 @@ export const fr = {
     news: "Actualités"
   },
   hero: {
-    title: "L'accueil, l'insertion et l'épanouissement des nouveaux arrivants francophones en Ontario",
-    subtitle: "Promouvoir la diversité multiculturelle de l'Ontario à travers le sport et la culture.",
+    ariaLabel: "Section d'accueil — REIFO Ontario",
+    label: "REIFO — Ontario",
+    titleLine1: "L'",
+    titleHighlight1: "accueil",
+    titleLine2: ", l'insertion et l'",
+    titleHighlight2: "épanouissement",
+    titleLine3: "des nouveaux arrivants francophones",
+    description: "Le Réseau d'entraide des Immigrants Francophones de l'Ontario accompagne les personnes et les familles dans leur intégration sociale, éducative et communautaire dans la région de Halton.",
     ctaMember: "Devenir membre",
-    ctaActivities: "Rejoindre nos activités"
+    ctaActivities: "Découvrir nos activités",
+    statYears: "ans d'engagement",
+    statMembers: "membres actifs",
+    statSectors: "volets d'action",
+    badgeAria: "Organisme basé à Halton, Ontario",
+    badgeTitle: "Région de Halton",
+    badgeSubtitle: "Ontario, Canada",
+    // Legacy keys kept for compatibility
+    title: "L'accueil, l'insertion et l'épanouissement des nouveaux arrivants francophones en Ontario",
+    subtitle: "Promouvoir la diversité multiculturelle de l'Ontario à travers le sport et la culture."
   },
   about: {
     badge: "Qui sommes-nous ?",

@@ -35,10 +35,25 @@ export const en = {
     news: "News"
   },
   hero: {
-    title: "Integration, support, and growth of French-speaking newcomers in Ontario",
-    subtitle: "Promoting Ontario's multicultural diversity through sport and culture.",
+    ariaLabel: "Welcome section — REIFO Ontario",
+    label: "REIFO — Ontario",
+    titleLine1: "Welcoming, integrating and empowering",
+    titleHighlight1: "Francophone",
+    titleLine2: "",
+    titleHighlight2: "newcomers",
+    titleLine3: "across Ontario",
+    description: "The Réseau d’entraide des Immigrants Francophones de l’Ontario supports individuals and families in their social, educational and community integration in the Halton region.",
     ctaMember: "Become a member",
-    ctaActivities: "Join our activities"
+    ctaActivities: "Explore our programs",
+    statYears: "years of service",
+    statMembers: "active members",
+    statSectors: "action pillars",
+    badgeAria: "Organization based in Halton, Ontario",
+    badgeTitle: "Halton Region",
+    badgeSubtitle: "Ontario, Canada",
+    // Legacy keys kept for compatibility
+    title: "Integration, support, and growth of French-speaking newcomers in Ontario",
+    subtitle: "Promoting Ontario's multicultural diversity through sport and culture."
   },
   about: {
     badge: "Who are we?",
